@@ -1,0 +1,214 @@
+{%extends 'layout.html'%}
+
+{%block body1%}
+<style>
+    .card {
+        max-height: 800px; /* Set the maximum height as desired */
+        overflow: hidden;
+        border-radius: 14px;
+        z-index: 1;
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    }
+    .card1 {
+        max-height: 800px; /* Set the maximum height as desired */
+        overflow: hidden;
+        border-radius: 14px;
+        z-index: 100000;
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    }
+
+    .read-more-content {
+        display: none;
+    }
+
+    .read-more-button {
+        cursor: pointer;
+        color: blue;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* extra css */
+
+    
+</style> 
+  <div style="padding-left:16px ">
+    <div id="cart-container" >
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style='float:right; width: 10%;' >
+            ShopCart
+        </button>
+          <!-- cart-overlay  -->
+        
+            <div class="cart card1 collapse cart-overlay" id="collapseExample" style="max-height: 500px;">
+                <div class="row">
+                    <div class="col-md-8 cart">
+                        <div class="title">
+                            <div class="row">
+                                    <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                                    <div class="col align-self-center text-right text-muted">3 items</div>
+                            </div>
+                        </div>    
+                        <div class="row cart-item border-top border-bottom">
+                            <div class="row main align-items-center">
+                                
+                            </div>
+                        </div>
+                            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                        </div>
+                        <div class="col-md-4 summary">
+                            <div><h5><b>Summary</b></h5></div>
+                            <hr>
+                            <div class="row">
+                                <div class="col" style="padding-left:0;">ITEMS 3</div>
+                                <div class="col text-right">&euro; 132.00</div>
+                            </div>
+                            <form>
+                                <p>SHIPPING</p>
+                                <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+                                <p>GIVE CODE</p>
+                                <input id="code" placeholder="Enter your code">
+                            </form>
+                            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                <div class="col">TOTAL PRICE</div>
+                                <div class="col text-right">&euro; 137.00</div>
+                            </div>
+                            <button class="btn">CHECKOUT</button>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+    </div>
+  </div>
+
+<!--About-->
+<section >
+  <div class="page-header">
+    <h2>Shop</h2>
+  </div>
+  <!--laptops-->
+
+    <div class="container bg-light " id="laptops" >
+        
+        <div class="row">
+            <h3 class="title text-center fw-bolder  bg-warning">Laptops</h3>
+            {%for product in product_list%}
+            {%if product.category=='Laptop'%}
+            <div class="col">               
+                <div class="card text-center"  style="width: 20rem;">
+                    <!-- <img src="{{url_for('static',filename='theme-pics/laptops/HP EliteBook 840 G8.png')}}" class="card-img-top" alt="..."> -->
+                        {% set image_url = url_for('static', filename='post_images/' + product.product_image) %}
+                            <img src="{{ image_url }}" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.product_name }}</h5>
+                        <h5 class="card-price"><strong>KES {{ product.price }}</strong> </h5>
+                        <div class="card-text">
+                            <p class="preview-content">{{ product.description | truncate(100) }}</p>
+                            <p class="read-more-content">{{ product.description }}</p>
+                            <span class="read-more-button">Read More</span>
+                        </div>
+                        <a href="#" class="btn btn-primary add-to-cart" data-product-id="{{ products.id }}">Add to cart</a>
+
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+    <br><br>
+    <!--Printers-->
+    <div class="container bg-light" id="printers" >
+        <div class="row">
+            <h3 class="title text-center bg-warning text-wrap">Printers</h3>
+            {%for product in product_list%}
+            {%if product.category=='Printers'%}
+            <div class="col">
+                <div class="card text-center"  style="width: 18rem;">
+                    {% set image_url = url_for('static', filename='post_images/' + product.product_image) %}
+                    
+                    <img src="{{ image_url }}" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.product_name }}</h5>
+                        <h5 class="card-price"><strong>KES {{ product.price }}</strong> </h5>
+                        <div class="card-text">
+                            <p class="preview-content">{{ product.description | truncate(100) }}</p>
+                            <p class="read-more-content">{{ product.description }}</p>
+                            <span class="read-more-button">Read More</span>
+                        </div>
+                        <a href="#" class="btn btn-primary add-to-cart" data-product-id="{{ products.id }}">Add to cart</a>
+                    </div>    
+                </div>
+            </div>
+            {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+    <br><br>
+    <div class="container bg-light" id="antivirus" >
+        <div class="row">
+            <h3 class="title text-center fw-bolder bg-warning">Antivirus</h3>
+            {%for product in product_list%}
+            {%if product.category=='Antivirus'%}
+            <div class="col">
+                <div class="card text-center"  style="width: 18rem;">
+                    {% set image_url = url_for('static', filename='post_images/' + product.product_image) %}
+                    
+                    <img src="{{ image_url }}" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.product_name }}</h5>
+                        <h5 class="card-price"><strong>KES {{ product.price }}</strong> </h5>
+                        <div class="card-text">
+                            <p class="preview-content">{{ product.description | truncate(100) }}</p>
+                            <p class="read-more-content">{{ product.description }}</p>
+                            <span class="read-more-button">Read More</span>
+                        </div>
+                        <a href="#" class="btn btn-primary add-to-cart" data-product-id="{{ products.id }}">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        
+            {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+</section>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+{%endblock body1%} 

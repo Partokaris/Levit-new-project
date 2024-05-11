@@ -1,0 +1,49 @@
+{%extends 'layout.html'%}
+
+{%block body1%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <div class="cart">
+        <h1>Your Shopping Cart</h1>
+        <ul class="cart-list">
+            <li class="cart-item">
+                <img src="product1.jpg" alt="Product 1">
+                <div class="item-details">
+                    <h2>Product 1</h2>
+                    <p>Price: $10.00</p>
+                    <p>Quantity: 2</p>
+                </div>
+            </li>
+            <li class="cart-item">
+                <img src="product2.jpg" alt="Product 2">
+                <div class="item-details">
+                    <h2>Product 2</h2>
+                    <p>Price: $15.00</p>
+                    <p>Quantity: 1</p>
+                </div>
+            </li>
+            <!-- Add more cart items here -->
+        </ul>
+        <div class="cart-total">
+            <p>Total: $35.00</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+{%endblock body1%}

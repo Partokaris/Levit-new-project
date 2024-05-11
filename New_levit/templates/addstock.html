@@ -1,0 +1,97 @@
+{%extends 'layout.html'%}
+
+{%block body1%}
+<div class="container mt-5">
+    <h1>Add Stock</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        <!-- <input type="file" name="image" id="image" style="display: none;"> -->
+        <button type="button" class="btn btn-default btn-sm">
+            <label for="upload" class="custom-button">Upload image
+             <i  class="bi bi-camera-fill"> </i>
+               {{form.product_image(id="upload",class="form-control-file", style="display:none;", onchange="getImage(this.value);")}}
+                  {%if form.product_image.errors%}
+                    {%for error in errors%}
+                        <span class="text-danger">{{error}}</span><br>
+                    {%endfor%}
+                  {%endif%} 
+            
+             <!-- <span class="glyphicon glyphicon-thumbs-up"></span> Like -->
+
+             </label>
+             <div id="display-image"></div>
+           </button>
+        <!-- <input type="submit" value="Upload"> -->
+
+        <div class="mb-3">
+            <label for="stockName" class="form-label">Product Name</label>
+            {%if form.product_name.errors%}
+                  {{form.product_name (class="form-control form-control-lg is-invalid ")}} 
+                    {%for error in form.product_name.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                  {%else%}
+                  {{form.product_name(class="form-control")}}
+                  {%endif%} 
+            <!-- <input type="text" class="form-control" id="stockName" placeholder="Enter stock name"> -->
+        </div>
+        <div class="mb-3">
+            <label for="stockName" class="form-label">Product Description</label>
+            {%if form.description.errors%}
+                  {{form.description (class="form-control form-control-lg is-invalid ")}} 
+                    {%for error in form.description.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                  {%else%}
+                  {{form.description(class="form-control")}}
+                  {%endif%} 
+            <!-- <input type="text" class="form-control" id="stockName" placeholder="Enter stock name"> -->
+        </div>
+        <div class="mb-3">
+            <label for="sel1">Product Category</label>
+            {%if form.category.errors%}
+            {{form.category (class="form-control form-control-lg is-invalid ")}} 
+              {%for error in form.category.errors%}
+              <span>{{error}}</span>
+              {%endfor%}
+            {%else%}
+            {{form.category(class="form-control")}}
+            {%endif%} 
+        </div>
+        <div class="form-group">
+            <label for="Model_number">Product Model Number:</label>
+            {%if form.Model_number.errors%}
+            {{form.Model_number (class="form-control form-control-lg is-invalid ")}} 
+              {%for error in form.Model_number.errors%}
+              <span>{{error}}</span>
+              {%endfor%}
+            {%else%}
+            {{form.Model_number(class="form-control")}}
+            {%endif%} 
+        </div>
+        <div class="form-group">
+            <label for="description"> Discount:</label>
+            {%if form.discount.errors%}
+            {{form.discount (class="form-control form-control-lg is-invalid ")}} 
+              {%for error in form.discount.errors%}
+              <span>{{error}}</span>
+              {%endfor%}
+            {%else%}
+            {{form.discount(class="form-control")}}
+            {%endif%} 
+        </div>
+        <div class="form-group">
+            <label for="Price">Product Price:</label>
+            {%if form.price.errors%}
+            {{form.price (class="form-control form-control-lg is-invalid ")}} 
+              {%for error in form.price.errors%}
+              <span>{{error}}</span>
+              {%endfor%}
+            {%else%}
+            {{form.price(class="form-control")}}
+            {%endif%} 
+        </div>
+        <button type="submit" class="btn btn-primary">Add Stock</button>
+    </form>
+</div>
+{%endblock body1%}

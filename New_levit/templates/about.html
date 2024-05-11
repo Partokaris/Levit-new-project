@@ -1,0 +1,34 @@
+{%extends 'layout.html'%}
+
+{%block body1%}
+<!--About-->
+<section class="">
+  <div class="page-header">
+    <h2 class="Page-title">About Us</h2>
+  </div>
+  <br><br>
+  <div class="container"
+    <p class="h3">Levit Innovations Ltd is an Information Technology Company that Specializes in Providing 
+      Innovative Business Enabling Computing Solutions, Automation, Infrastructure Management, 
+      Management Information, Security Systems and ICT Consultancy.
+    </p>
+  </div>
+  <br>
+  <div class="container">
+    <h2 class="text-center">OUR VISION</h2>
+    <figure class="figure text-start">
+      <img src="{{url_for('static',filename='theme-pics/room1.jpg')}}" class="figure-img img-fluid rounded align-center" style="width:600px height:500px" alt="...">
+      <figcaption class="figure-caption">
+        <p class="h5">To be the partner of choice in provision of tailored computing solutions for diverse business needs.</p>
+      </figcaption>
+    </figure>
+  </div>
+  <br>
+  <div class="container">
+    <h2 class=""text-center>OUR MISSION</h2>
+    <img src="{{url_for('static',filename='theme-pics/firmbee-com-gcsNOsPEXfs-unsplash.jpg')}}" class="img-fluid rounded " style="max-width: auto; height: 40%;" alt="Responsive image">
+    <p class="h4 text-center">Excellence in helping our partners achieve operational efficiency and unlock business potential through 
+      innovative business solutions powered by technological advancement.</p>
+  </div>
+</section>
+{%endblock body1%} 

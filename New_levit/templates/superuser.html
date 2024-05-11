@@ -1,0 +1,280 @@
+{% extends 'layout.html' %}
+
+{% block body1 %}
+  
+<div class="container text-center">  
+  
+  <div class="row">
+    <div class="col-sm-3 well">
+      <div class="well">
+        <p><a href="#">My Profile</a></p>
+        <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+      </div>
+      <div class="well">
+        <p><a href="#">Interests</a></p>
+        <p>
+          <span class="label label-default">News</span>
+          <span class="label label-primary">W3Schools</span>
+          <span class="label label-success">Labels</span>
+          <span class="label label-info">Football</span>
+          <span class="label label-warning">Gaming</span>
+          <span class="label label-danger">Friends</span>
+        </p>
+      </div>
+      <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <p><strong>Ey!</strong></p>
+        People are looking at your profile. Find out who.
+      </div>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-7">
+      <form method="POST" action="" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <!-- title of the post -->
+              <div class="form-group">
+                <label for="title" class="col-md-2 control-label">Title &nbsp;
+                </label>
+                <div class="col-md-10">
+                  {%if form.title.errors%}
+                  {{form.title (class="form-control form-control-lg is-invalid")}} 
+                    {%for error in form.title.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                  {%else%}
+                  {{form.title (class="form-control")}}
+                  {%endif%} 
+                </div>
+                
+              </div>
+              <!-- subtitle of the post -->
+              <div class="form-group">
+                <label for="title" class="col-md-2 control-label">Subtitle &nbsp;
+                </label>
+                <div class="col-md-10">
+                  {%if form.subtitle.errors%}
+                  {{form.subtitle (class="form-control form-control-lg is-invalid")}} 
+                    {%for error in form.subtitle.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                  {%else%}
+                  {{form.subtitle (class="form-control")}}
+                  {%endif%} 
+                </div>
+                
+              </div>
+              <!-- Author of the post -->
+              <div class="form-group">
+                <label for="title" class="col-md-2 control-label">Author &nbsp;
+                </label>
+                <div class="col-md-10">
+                  {%if form.author.errors%}
+                  {{form.author (class="form-control form-control-lg is-invalid")}} 
+                    {%for error in form.author.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                  {%else%}
+                  {{ form.author(class="form-control", value=current_user.first_name + ' ' + current_user.second_name) }}
+                  {%endif%}  
+                </div>
+                
+              </div>
+              <!-- Date  of the post -->
+              <div class="form-group">
+                <label for="date" class="col-md-2 control-label">Date:</label>
+                <div class="col-md-10">
+                  {% if form.date_posted.errors %}
+                    {{ form.date_posted(class="form-control form-control-lg is-invalid", type="date", id="datetimepicker") }}
+                    {% for error in form.date_posted.errors %}
+                      <span>{{ error }}</span>
+                    {% endfor %}
+                  {% else %}
+                    {{ form.date_posted(class="form-control", type="date") }}
+                  {% endif %}
+                </div>
+              </div>
+              
+                
+              </div>
+              <!-- slug  of the post -->
+              <div class="form-group">
+                <label for="title" class="col-md-2 control-label">slug 
+                </label>
+                <div class="col-md-10">
+                  {%if form.slug.errors%}
+                  {{form.slug (class="form-control form-control-lg is-invalid")}} 
+                    {%for error in form.slug.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                  {%else%}
+                  {{form.slug (class="form-control")}}
+                  {%endif%} 
+                </div>
+                
+              </div>
+
+              
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">{{form.content.label}}</label>
+                {%if form.content.errors%}
+                {{form.content (class="form-control form-control-lg is-invalid")}} 
+                  {%for error in form.content.errors%}
+                  <span>{{error}}</span>
+                  {%endfor%}
+                {%else%}
+                {{form.content (class="form-control")}}
+                {%endif%} 
+              </div>
+              <div class="form-group">
+                          
+              </div>
+              <div class="mt-5">
+                <img src="{{file_url}}" style="width: 400px;">
+              </div>
+              
+              <button type="button" class="btn btn-default btn-sm">
+                <i class="bi bi-camera-video-fill">  </i>
+                <!-- <span class="glyphicon glyphicon-thumbs-up"></span> Like -->
+              </button>     
+              <button type="button" class="btn btn-default btn-sm">
+               <label for="upload">
+                <i  class="bi bi-camera-fill"> </i>
+                  {{form.picture(id="upload",class="form-control-file", style="display:none;", onchange="getImage(this.value);")}}
+                {%if form.picture.errors%}
+                  {%for error in errors%}
+                  <span class="text-danger">{{error}}</span><br>
+                  {%endfor%}
+                {%endif%} 
+               
+                <!-- <span class="glyphicon glyphicon-thumbs-up"></span> Like -->
+   
+                </label>
+                <div id="display-image"></div>
+              </button>
+              
+              <button type="button" class="btn btn-default btn-sm">
+                <i class="bi bi-mic-fill"></i>
+                <!-- <span class="glyphicon glyphicon-thumbs-up"></span> Like -->
+              </button>  
+              {{form.submit(class="btn btn-warning float-right ml-1 align-right justify-content-md-end")}}
+            </div>
+            <div class="form-group">
+              <!-- image place -->
+            </div>
+            <div class="container w-20">
+              <img src="{{image_url}}" alt="">
+
+            </div>
+          </div>
+        </div>
+      </form>
+      {{ ckeditor.load() }}
+      {{ ckeditor.config(name='content') }}
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>John</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Bo</p>
+           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Jane</p>
+           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Anja</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>     
+    </div>
+    <div class="col-sm-2 well">
+      <div class="thumbnail">
+        <p>Upcoming Events:</p>
+        <img src="paris.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Paris</strong></p>
+        <p>Fri. 27 November 2015</p>
+        <button class="btn btn-primary">Info</button>
+      </div>      
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+
+<script type="text/javascript">
+  function getImage(imagename){
+    var newimg=imagename.replace(/^.*\\/,"");
+    $('#display-image').html(newimg);
+  }
+  $(document).ready(function () {
+      $('#datetimepicker').datetimepicker({
+          format: 'YYYY-MM-DD HH:mm',
+          icons: {
+              time: 'fa fa-clock-o',
+              date: 'fa fa-calendar',
+              up: 'fa fa-chevron-up',
+              down: 'fa fa-chevron-down',
+              previous: 'fa fa-chevron-left',
+              next: 'fa fa-chevron-right',
+              today: 'fa fa-crosshairs',
+              clear: 'fa fa-trash',
+              close: 'fa fa-times'
+          }
+      });
+  });
+</script>
+{% endblock body1 %}

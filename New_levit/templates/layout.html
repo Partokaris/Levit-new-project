@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levit Innovations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   
+
+    <nav class="navbar sticky-top bg-body-tertiary bg-dark navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img class="site-logo" src="{{url_for('static',filename='theme-pics/logo-wt.png')}}" alt="" width="200px" height="auto" class="d-inline-block align-text-top">
+          </a>
+          <div class="header">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/services">Our Services</a>
+              </li>
+              <li class="nav-item dropdown text-white">
+                <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Products</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/shop#laptops">Laptops</a></li>
+                  <li><a class="dropdown-item" href="/shop#printers">Printers</a></li>
+                  <li><a class="dropdown-item" href="/shop#antivirus">Antivirus</a></li>
+                  <li><a class="dropdown-item" href="/shop">Bulk sms</a></li>
+                  <!--<li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>-->
+                </ul>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-white" href="/blogging">Blog</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-white" href="/contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/registration">Sign Up</a>
+              </li>
+              {%if current_user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/addstock">Add Stock</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/superuser">Admin Panel</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/login" onclick="confirmLogout()">Logout</a>
+              </li>
+              {%endif%}
+            </ul>
+          </div> 
+        </div>
+    </nav>
+    <style>   
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body >
+  <div class="container w-50">
+    {%with messages=get_flashed_messages(with_categories=true)%}
+      {%if messages%}
+        {%for category,message in messages %}
+          <div class="alert alert-{{category}}">
+            {{message}}
+          </div>
+        {%endfor%}
+      {%endif%}
+    {%endwith%}
+  </div>
+  <div class="" >
+    {%block header%}
+    
+    {%endblock header%} 
+    {%block body1%}
+      
+    {%endblock body1%}
+    
+    <!--footer--->
+    <section>
+      <footer class="bg-blue text-center text-lg-start" style="background-color:#3366ff;">
+        <div class="container --bs-primary p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <a class="navbar-brand" href="#">
+                <img src="{{url_for('static',filename='/theme-pics/logo.png')}}" alt="" width="200px" height=auto overflow: class="d-inline-block align-text-top">
+              </a>
+            </br>
+              <p class="text-white">
+                Innovative computing solutions designed and optimized for you
+              </p>
+              
+            </div>
+      
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase text-white">Links</h5>
+      
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="/about" class="text-white">About Us</a>
+                </li>
+                <li>
+                  <a href="/services" class="text-white">Our Services</a>
+                </li>
+                <li>
+                  <a href="/shop" class="text-white">Products</a>
+                </li>
+                <li>
+                  <a href="/blog" class="text-white">Blog</a>
+                </li>
+                <li>
+                  <a href="/contact" class="text-white">Contact</a>
+                </li>
+              </ul>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase text-white">Contact</h5>
+      
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <i class="bi bi-telephone text-warning"> 0772752236</i>
+                  <p class="text-white"></p>
+                </li>
+                <li>
+                  <a href="mailto:info@levit.co.ke?subject=Mail from our Website"><i class="bi bi-envelope-at-fill text-warning" > info@levit.co.ke</i></a>
+                  <!--<p class="text-white">info@levit.co.ke</p>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+        <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Levit Innovations
+              <a href="#"><i class="bi bi-facebook mx-1"></i></a>
+              <a href=""><i class="bi bi-instagram mx-1"></i></a>
+              <a href=""><i class="bi bi-twitter mx-1"></i></a>
+              <a href=""><i class="bi bi-youtube mx-1"></i></a>
+        </div>
+      </footer> 
+    </section>
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+              targetElement.scrollIntoView({
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+
+  document.querySelectorAll('.read-more-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var previewContent = this.parentNode.querySelector('.preview-content');
+            var readMoreContent = this.parentNode.querySelector('.read-more-content');
+            
+            if (previewContent.style.display !== 'none') {
+                previewContent.style.display = 'none';
+                readMoreContent.style.display = 'block';
+                this.textContent = 'Read Less';
+            } else {
+                previewContent.style.display = 'block';
+                readMoreContent.style.display = 'none';
+                this.textContent = 'Read More';
+            }
+        });
+    }); 
+    function confirmLogout() {
+        var result = confirm("Are you sure you want to log out?");
+        if (result) {
+            // Redirect to the logout URL
+            window.location.href = "/logout";
+        }
+    } 
+</script>
+
+</body>
+</html>

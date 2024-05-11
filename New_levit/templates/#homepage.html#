@@ -1,0 +1,343 @@
+{%extends 'layout.html'%}
+
+
+{%block header%}
+
+{%endblock header%} 
+{%block body1%}
+<!--hero section-->
+<section id="hero" class="hero-section wf-section">
+  <div class="hero-background">
+    <div class="container w-container">
+      <div class="hero-container-wrapper">
+        <div class="row ">
+          <div class="col hero-content">
+            <h1 class="display-1" class="hero-title">WHO WE ARE</h1>
+            <p class="hero-text">Levit Innovations Ltd is an Information Technology Company that Specializes in Providing Innovative Business Enabling Computing Solutions, Automation, Infrastructure Management, Management Information, Security Systems and ICT Consultancy</p>
+            <div class="hero-link-group">
+              <a href="#" class="primary-button nav-link active">Learn more</a>
+            </div>
+          </div>
+          <div class="col">
+            <img src="{{url_for('static',filename='theme-pics/icnnovations2.jpg')}}" class="rounded mx-auto d-block" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--section about-->
+<section id="about" class="about section-padding">
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-12 col-12">
+      <div class="about-img">
+        <img src="{{url_for('static',filename='theme-pics/pic1.jpg')}}"alt="" class="img-fluid">
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-12 ps-lg-5 mt-md-5">
+      <div class="about-text">
+        <h2>We are the best when it <br>comes to technology</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+          enim rerum qui odit nisi eligendi tempora a mollitia pariatur saepe consequuntur ipsum officiis aut? Vero, a? Quibusdam aut quos consequuntur.
+        </p>
+        <a href="#" class="btn btn-warning">Learn More</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!--services section -->
+<section id="services" class="services section-padding">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-12">
+        <div class="section-header text-center pd-5">
+          <h2 class="bg-warning">Our Services</h2>
+      </div>
+    </div>
+    <!--first services row-->
+    <div class="row g-2 gx-2">
+      <div class="col-12-col-md-12 col-lg-4 d-flex align-items-stretch">
+        <div class="card text-white text-center bg-primary pb-2">
+          <div class="card-body">
+            <i class="bi bi-tools"></i>
+            <h3 class="card-title text-warning">Hardware and Infrastructure</h3>
+            <p class="lead">
+              We offer bespoke solutions for your IT infrastructure needs. Our offerings include the supply of computers, printers and accessories, 
+              Structured cabling, Preventative service and maintenance, the establishment of LAN, WAN and wireless networks
+            </p>
+            <button class="btn btn-warning text-dark mt-auto align-self-start">Read More</button>
+          </div>
+        </div>
+      </div>
+      <!--Software service-->
+      <div class="col-12-col-md-12 col-lg-4 d-flex align-items-stretch">
+        <div class="card text-white text-center bg-primary pb-2">
+          <div class="card-body">
+            <i class="bi bi-display"></i>
+            <h3 class="card-title">Software Solutions</h3>
+            <p class="lead">
+              We Supply, Implement, Maintain and Support business enabling Software Applications. 
+              We focus on management information systems, ERPs,  finance and accounting systems and POS Systems.
+            </p>
+            <button class="btn btn-warning text-dark mt-auto align-self-start">Read More</button>
+          </div>
+        </div>
+      </div>
+      <!--Security service-->
+      <div class="col-12-col-md-12 col-lg-4 d-flex align-items-stretch">
+        <div class="card text-white text-center bg-primary pb-2">
+          <div class="card-body">
+            <i class="bi bi-fingerprint"></i>
+            <h3 class="card-title">Security solutions</h3>
+            <p class="lead">
+              Secure your Business and Property through Professionally designed security solutions. 
+              We major in CCTV Security Solutions, Door Access Control, and Razor Wire Electric Fencing.
+            </p>
+            <button class="btn btn-warning text-dark mt-auto align-self-end">Read More</button>
+          </div>
+        </div>
+      </div>
+      <!--Website service-->
+      <div class="col-12-col-md-12 col-lg-4 d-flex align-items-stretch">
+        <div class="card text-white text-center bg-primary pb-2">
+          <div class="card-body">
+            <i class="bi bi-code-slash"></i>
+            <h3 class="card-title">Website Development</h3>
+            <p class="lead">
+              Get your business online with a professionally designed website. 
+              We have a team of seasoned web developers specializing in end-to-end design and maintenance. 
+              A website gives you an online identity and allows you to market your business online.
+            </p>
+            <button class="btn btn-warning text-dark mt-auto align-self-end">Read More</button>
+          </div>
+        </div>
+      </div>
+      <!--Graphics Design-->
+      <div class="col-12-col-md-12 col-lg-4 d-flex align-items-stretch">
+        <div class="card text-white text-center bg-primary pb-2">
+          <div class="card-body">
+            <i class="bi bi-palette-fill"></i>
+            <h3 class="card-title">Graphics Design & Digital Marketing</h3>
+            <p class="lead">
+              Your Business visibility is not complete without unique outdoor signage, branding, and a consistent powerful digital presence. 
+              Our team of graphic designers and digital marketers will ensure your brand is seen and heard through creative and unique content.
+            </p>
+            <button class="btn btn-warning text-dark mt-auto align-self-end">Read More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12-col-md-12 col-lg-4 d-flex align-items-stretch">
+        <div class="card text-white text-center bg-primary pb-2">
+          <div class="card-body">
+            <i class="bi bi-cpu"></i>
+            <h3 class="card-title">ICT Consultancy</h3>
+            <p class="lead">
+              Modern organizations are built on the backbone of sound IT strategy and infrastructure. 
+              At Levit Innovations we specialize in ERP Consulting and Software Project Management ensuring you meet your IT goals without losing focus of your core business.
+            </p>
+            <button class="btn btn-warning text-dark mt-auto align-self-end">Read More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+
+<!--Section portifolio-->
+<section id="portfolio" class="portfolio section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header text-center pd-5">
+        <h2>Our Projects</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat et sint est. A, magni, 
+          perferendis odio sapiente earum dicta commodi ratione magnam aspernatur, praesentium nemo. Tempore non deserunt sapiente totam!</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-4">
+        <div class="card  text-center bg-white pb-2">
+          <div class="card-body text-dark">
+              <div class="img-area mb-4">
+                <img src="{{url_for('static',filename='theme-pics/room1.jpg')}}" alt="" class="img-fluid">
+              </div>
+              <h4 class="card-title">IT Solutions</h4>
+              <p class="lead">
+               
+              </p>
+              <button class="btn bg-warning text-dark">Read More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-4">
+        <div class="card  text-center bg-white pb-2">
+          <div class="card-body text-dark">
+              <div class="img-area mb-4">
+                <img src="{{url_for('static',filename='theme-pics/room2.jpg')}}" alt="" class="img-fluid">
+              </div>
+              <h3 class="card-title">Managed Cabling</h3>
+              <p class="lead">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam velit libero ratione laudantium, 
+                illo culpa est quia voluptatum praesentium tempora nam porro amet veritatis ea molestias officiis excepturi eaque? Praesentium!
+              </p>
+              <button class="btn bg-warning text-dark">Read More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-4">
+        <div class="card  text-center bg-white pb-2">
+          <div class="card-body text-dark">
+              <div class="img-area mb-4">
+                <img src="{{url_for('static',filename='theme-pics/room4.jpg')}}" alt="" class="img-fluid">
+              </div>
+              <h3 class="card-title">Beautiful Layout</h3>
+              <p class="lead">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam velit libero ratione laudantium, 
+                illo culpa est quia voluptatum praesentium tempora nam porro amet veritatis ea molestias officiis excepturi eaque? Praesentium!
+              </p>
+              <button class="btn bg-warning text-dark">Read More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Team Section
+<section id="team" class="team section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header text-center pd-5">
+        <h2>Our Team</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat et sint est. A, magni, 
+          perferendis odio sapiente earum dicta commodi ratione magnam aspernatur, praesentium nemo. Tempore non deserunt sapiente totam!</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <img src="{{url_for('static',filename='theme-pics/team1.jpg')}}" alt="patrick" class="img-fluid rounded-circle">
+            <h3 class="card-title-py-2">Patrick Thairu</h3>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deleniti.</p>
+            <p class="socials">
+              <i class="bi bi-twitter text-dark mx-1"></i>
+              <i class="bi bi-facebook text-dark mx-1"></i>
+              <i class="bi bi-instagram text-dark mx-1"></i>
+              <i class="bi bi-linkedin text-dark mx-1"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <img src="{{url_for('static',filename='theme-pics/team2.jpg')}}" alt="patrick" class="img-fluid rounded-circle">
+            <h3 class="card-title-py-2">Joe something</h3>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deleniti.</p>
+            <p class="socials">
+              <i class="bi bi-twitter text-dark mx-1"></i>
+              <i class="bi bi-facebook text-dark mx-1"></i>
+              <i class="bi bi-instagram text-dark mx-1"></i>
+              <i class="bi bi-linkedin text-dark mx-1"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <img src="{{url_for('static',filename='theme-pics/team3.jpg')}}" alt="patrick" class="img-fluid rounded-circle">
+            <h3 class="card-title-py-2">Lucy Something</h3>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deleniti.</p>
+            <p class="socials">
+              <i class="bi bi-twitter text-dark mx-1"></i>
+              <i class="bi bi-facebook text-dark mx-1"></i>
+              <i class="bi bi-instagram text-dark mx-1"></i>
+              <i class="bi bi-linkedin text-dark mx-1"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+
+
+{%endblock body1%} 
+{%block footer%}
+<!--footer--->
+<section>
+  <footer class="bg-blue text-center text-lg-start" style="background-color:#3366ff;">
+    <div class="container --bs-primary p-4">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <a class="navbar-brand" href="#">
+            <img src="{{url_for('static',filename='/theme-pics/logo.png')}}" alt="" width="200px" height=auto overflow: class="d-inline-block align-text-top">
+          </a>
+        </br>
+          <p class="text-white">
+            Innovative computing solutions designed and optimized for you
+          </p>
+          
+        </div>
+  
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-white">Links</h5>
+  
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">About Us</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Our Services</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Products</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Blog</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Contact</a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-white">Contact</h5>
+  
+          <ul class="list-unstyled mb-0">
+            <li>
+              <i class="bi bi-telephone text-warning"> 0772752236</i>
+              <p class="text-white"></p>
+            </li>
+            <li>
+              <i class="bi bi-envelope-at-fill text-warning"> info@levit.co.ke</i>
+              <!--<p class="text-white">info@levit.co.ke</p>-->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Levit Innovations
+          <i class="bi bi-facebook mx-1"></i>
+          <i class="bi bi-instagram mx-1"></i>
+          <i class="bi bi-twitter mx-1"></i>
+          <i class="bi bi-youtube mx-1"></i>
+    </div>
+  </footer> 
+</section>
+{%endblock footer%}
